@@ -4,7 +4,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="w-full">
+    <section className="w-full">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
         corrupti dolor est eveniet libero ut eius tempore deserunt, veritatis
@@ -110,6 +110,6 @@ export default function Home() {
         maiores, doloribus officia earum laudantium ratione eligendi sed
         repellendus ipsa?
       </p>
-    </main>
+    </section>
   );
 }
