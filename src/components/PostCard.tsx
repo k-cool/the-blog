@@ -9,14 +9,16 @@ interface PostCardProps {
 
 export default function PostCard({ postData }: PostCardProps) {
   return (
-    <div className="relative w-full max-h-[400px] bg-themeBlack rounded-lg shadow-md overflow-hidden">
-      <div className="w-full h-[150px] relative">
-        <Image
-          src={postData.thumb}
-          alt={postData.title}
-          fill
-          style={{ objectFit: "cover" }}
-        />
+    <div className="relative w-full max-h-[400px] bg-themeBlack rounded-lg shadow-md overflow-hidden cursor-pointer">
+      <div className="w-full h-[150px] overflow-hidden">
+        <div className="w-full h-[150px] relative hover:scale-110 duration-300">
+          <Image
+            src={postData.thumb}
+            alt={postData.title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
       <div className="py-2 px-4">
         <div className="flex justify-between items-center">
