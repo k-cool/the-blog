@@ -1,4 +1,5 @@
 import EmailForm from '@/components/EmailForm';
+import ToastMessage from '@/components/ToastMessage';
 import { getJSONData } from '@/service/staticData';
 import { ContactLinkList } from '@/types/contackLink.type';
 import Link from 'next/link';
@@ -29,10 +30,8 @@ export default async function ContactPage() {
 					})}
 				</ul>
 			</section>
-			<section className="flex flex-col items-center py-4">
-				<h2 className="text-4xl my-4">Send me an Email</h2>
-				<EmailForm />
-			</section>
+
+			<EmailForm />
 		</div>
 	);
 }
