@@ -1,26 +1,68 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
 
-export default function Header() {
+import logoImg from "../../public/Images/pspace_logo.png";
+import { BiMenu } from "react-icons/bi";
+import { IoMdClose } from "react-icons/io";
+import { getJSONData } from "@/service/staticData";
+import type { HeaderMenuList } from "@/types/headerMenu.type";
+import { useState } from "react";
+
+interface HeaderProps {
+  headerMenu: HeaderMenuList;
+}
+
+export default function Header({ headerMenu }: HeaderProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <header className="sticky top-0 z-50 flex justify-between h-16 px-10 py-5 backdrop-blur border-b border-slate-400 border-solid shadow-md">
-        <h1 className="">Purple Space</h1>
-        <nav>
-          <ul className="flex gap-5">
-            <li>
-              <Link href="/home">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/posts">Posts</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
+      <header className="sticky top-0 z-20">
+        <div className="relative z-20 w-full h-[64px] px-4 flex items-center justify-center backdrop-blur border-b border-tertiary sm:justify-between">
+          <div className="flex items-center gap-2">
+            <Link href="/home">
+              <Image src={logoImg} alt="logo" width={50} height={50} />
+            </Link>
+            <Link href="/home">
+              <h1 className="text-[20px]">Purple Space</h1>
+            </Link>
+          </div>
+          <nav className="hidden sm:block">
+            <ul className="flex flex-row gap-4">
+              {headerMenu.map((menu) => (
+                <Link key={menu.id} href={menu.link}>
+                  <li className="py-4 hover:opacity-50">{menu.name}</li>
+                </Link>
+              ))}
+            </ul>
+          </nav>
+          <div className="absolute top-4 right-4 sm:hidden cursor-pointer">
+            {isOpen ? (
+              <IoMdClose size={26} onClick={() => setIsOpen(false)} />
+            ) : (
+              <BiMenu size={26} onClick={() => setIsOpen(true)} />
+            )}
+          </div>
+        </div>
+
+        <ul
+          className={`absolute z-10 w-full backdrop-blur border-b border-tertiary duration-500 ease-in-out sm:hidden
+          ${isOpen ? "top-[64px]" : "top-[-300px]"}
+          ${isOpen ? "opacity-100" : "opacity-0"}`}
+        >
+          {headerMenu.map((menu) => (
+            <Link key={menu.id} href={menu.link}>
+              <li
+                className="text-center py-4 hover:opacity-50"
+                onClick={() => setIsOpen(false)}
+              >
+                {menu.name}
+              </li>
+            </Link>
+          ))}
+        </ul>
       </header>
     </>
   );

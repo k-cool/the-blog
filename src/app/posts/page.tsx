@@ -1,7 +1,5 @@
+import PostCard from "@/components/PostCard";
+
 export default function PostsPage() {
-  return (
-    <>
-      <h1>posts page</h1>
-    </>
-  );
+  return <div className="p-4">{/* <PostCard /> */}</div>;
 }

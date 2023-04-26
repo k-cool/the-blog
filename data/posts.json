@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 2,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 3,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 4,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 5,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 6,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 7,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  },
+  {
+    "id": 8,
+    "createdAt": "2020-01-01 00:00:00",
+    "updatedAt": "2020-01-01 00:00:00",
+    "title": "react",
+    "description": "리액트를 다루는 기술",
+    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
+    "path": ""
+  }
+]
