@@ -4,6 +4,7 @@ export interface IPost {
   description: string;
   thumb: string;
   path: string;
+  category: string;
   createdAt: string;
   updatedAt: string;
 }

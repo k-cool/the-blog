@@ -1,12 +1,13 @@
 [
   {
     "id": 1,
-    "createdAt": "2020-01-01 00:00:00",
+    "createdAt": "2020-01-01 00:23:45",
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 2,
@@ -14,8 +15,9 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 3,
@@ -23,8 +25,9 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 4,
@@ -32,8 +35,9 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 5,
@@ -41,8 +45,9 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 6,
@@ -50,8 +55,9 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 7,
@@ -59,8 +65,9 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   },
   {
     "id": 8,
@@ -68,7 +75,8 @@
     "updatedAt": "2020-01-01 00:00:00",
     "title": "react",
     "description": "리액트를 다루는 기술",
-    "thumb": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg",
-    "path": ""
+    "thumb": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1lcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "path": "",
+    "category": "FE"
   }
 ]

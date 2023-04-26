@@ -1,14 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import logoImg from "../../public/Images/pspace_logo.png";
 import { BiMenu } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
-import { getJSONData } from "@/service/staticData";
+import logoImg from "../../public/Images/pspace_logo.png";
+
 import type { HeaderMenuList } from "@/types/headerMenu.type";
-import { useState } from "react";
 
 interface HeaderProps {
   headerMenu: HeaderMenuList;
