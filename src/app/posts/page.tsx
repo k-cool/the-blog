@@ -1,11 +1,13 @@
-import VScroll from '@/components/PostVScroll';
+import PostGrid from '@/components/PostGrid';
 import { getJSONData } from '@/service/staticData';
 
 export default async function PostsPage() {
-	const posts = await getJSONData('posts');
+	const postList = await getJSONData('posts');
+
 	return (
 		<div className="p-4">
-			<h1>post</h1>
+			{/* 카테고리 셀렉터 */}
+			<PostGrid title="Postings" data={postList} />
 		</div>
 	);
 }

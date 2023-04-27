@@ -4,6 +4,7 @@ import PostCard from './PostCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import type { PostList } from '@/types/post.type';
+import { useRouter } from 'next/navigation';
 
 const responsive = {
 	desktop: {
@@ -32,6 +33,12 @@ interface PostCarouselProps {
 }
 
 export default function PostCarousel({ data, title }: PostCarouselProps) {
+	const router = useRouter();
+
+	const goToPost = (id: string | number) => {
+		router.push(`/posts/${id}`);
+	};
+
 	return (
 		<>
 			{title && <h2 className="text-2xl my-2">{title}</h2>}
@@ -52,7 +59,7 @@ export default function PostCarousel({ data, title }: PostCarouselProps) {
 				dotListClass="custom-dot-list-style"
 			>
 				{data.map(item => (
-					<div key={item.id} className="mr-[15px] ">
+					<div key={item.id} className="mr-[15px]" onClick={() => goToPost(item.id)}>
 						<PostCard postData={item} />
 					</div>
 				))}
