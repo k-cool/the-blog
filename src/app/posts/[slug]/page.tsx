@@ -6,6 +6,8 @@ import HighlightedCode from '@/components/HighlightedCode';
 
 import { getPostMD, getPostMetaData } from '@/service/staticData';
 import type { CodeProps } from 'react-markdown/lib/ast-to-react';
+import PostNavigator from '@/components/PostNavigator';
+import { IPostNavigatorData } from '@/types/post.type';
 
 interface PostPageProps {
 	params: {
@@ -20,21 +22,21 @@ interface PostPageProps {
 // }
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
-	const postMeta = await getPostMetaData(slug);
-	// console.log('postmeta', postMeta);
-	if (!postMeta) return notFound();
+	const postNavigatorData = (await getPostMetaData(slug, true)) as IPostNavigatorData;
+	if (!postNavigatorData) return notFound();
 
 	const postMD = (await getPostMD(slug)) as string;
 
 	return (
-		<>
+		<div className="p-4">
 			<h1>{slug}</h1>
-			<section className="p-4">
+			<section className="mb-8">
 				<ReactMarkdown remarkPlugins={[remarkGfm]} components={{ code }}>
 					{postMD}
 				</ReactMarkdown>
 			</section>
-		</>
+			<PostNavigator data={postNavigatorData} />
+		</div>
 	);
 }
 

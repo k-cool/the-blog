@@ -10,3 +10,9 @@ export interface IPost {
 }
 
 export type PostList = IPost[];
+
+export interface IPostNavigatorData {
+	prev: IPost | null;
+	target: IPost;
+	next: IPost | null;
+}

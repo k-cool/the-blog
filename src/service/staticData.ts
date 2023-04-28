@@ -17,11 +17,19 @@ export async function getJSONData(fileName: string) {
 	}
 }
 
-export async function getPostMetaData(id: string) {
+export async function getPostMetaData(id: string, prevNext = false) {
 	const filePath = path.join(process.cwd(), 'data/posts.json');
+
 	try {
 		const data = (await fs.readFile(filePath, 'utf-8').then(JSON.parse)) as PostList;
-		return data.find(post => post.id == id);
+
+		if (prevNext) {
+			const index = data.findIndex(post => post.id == id);
+			const prev = index > 0 ? data[index - 1] : null;
+			const target = data[index];
+			const next = index < data.length - 1 ? data[index + 1] : null;
+			return { prev, target, next };
+		} else return { target: data.find(post => post.id == id) };
 	} catch (err) {
 		console.error(err);
 	}
