@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,6 +9,7 @@ import { IoMdClose } from 'react-icons/io';
 import logoImg from '../../public/Images/pspace_logo.png';
 
 import type { HeaderMenuList } from '@/types/headerMenu.type';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 interface HeaderProps {
 	headerMenu: HeaderMenuList;
@@ -16,6 +17,10 @@ interface HeaderProps {
 
 export default function Header({ headerMenu }: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
+	const ulRef = useRef<HTMLUListElement>(null);
+
+	const handleClickOutside = () => isOpen && setIsOpen(false);
+	useOutsideClick(ulRef, handleClickOutside);
 
 	return (
 		<>
@@ -51,6 +56,7 @@ export default function Header({ headerMenu }: HeaderProps) {
 					className={`absolute z-10 w-full backdrop-blur border-b border-tertiary duration-500 ease-in-out sm:hidden
           ${isOpen ? 'top-[64px]' : 'top-[-300px]'}
           ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+					ref={ulRef}
 				>
 					{headerMenu.map(menu => (
 						<Link key={menu.id} href={menu.link}>

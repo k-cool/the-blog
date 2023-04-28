@@ -10,11 +10,13 @@ import { useState } from 'react';
 interface PostNavigatorProps {
 	data: IPostNavigatorData;
 	title?: string;
+	rounded?: boolean;
 }
 
 export default function PostNavigator({
 	data: { prev, next },
 	title,
+	rounded,
 }: PostNavigatorProps) {
 	const [isLeftIn, setIsLeftIn] = useState(false);
 	const [isRightIn, setIsRightIn] = useState(false);
@@ -22,7 +24,11 @@ export default function PostNavigator({
 	return (
 		<>
 			<p>{title}</p>
-			<div className="relative w-full h-[150px] flex overflow-hidden rounded-xl">
+			<div
+				className={`relative w-full h-[150px] flex overflow-hidden ${
+					rounded ? 'rounded-xl' : ''
+				}`}
+			>
 				{prev ? (
 					<Link
 						href={`/posts/${prev.id}`}

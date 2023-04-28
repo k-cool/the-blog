@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import { intl } from '@/util/intl';
 import type { IPost } from '@/types/post.type';
 
 interface PostCardProps {
@@ -25,11 +24,7 @@ export default function PostCard({ postData }: PostCardProps) {
 				<div className="flex flex-col justify-between items-center">
 					<span className="w-full text-lg truncate">{postData.title}</span>
 					<span className="text-xs opacity-50">
-						{intl.formatToParts(new Date(postData.createdAt)).map((el, idx, arr) => {
-							if (idx - 1 > 0 && arr[idx - 1].type === 'day') return ' ';
-							if (el.value === '. ') return '-';
-							else return el.value;
-						})}
+						{new Date(postData.createdAt).toIntlString()}
 					</span>
 				</div>
 				<p className="w-full my-2 line-clamp-2 ">{postData.description}</p>
