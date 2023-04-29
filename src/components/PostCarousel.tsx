@@ -59,7 +59,11 @@ export default function PostCarousel({ data, title }: PostCarouselProps) {
 				dotListClass="custom-dot-list-style"
 			>
 				{data.map(item => (
-					<div key={item.id} className="mr-[15px]" onClick={() => goToPost(item.id)}>
+					<div
+						key={item.id}
+						className="mr-[15px] hover:shadow-xl"
+						onClick={() => goToPost(item.id)}
+					>
 						<PostCard postData={item} />
 					</div>
 				))}

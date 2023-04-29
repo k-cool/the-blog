@@ -17,7 +17,7 @@
 		"description": "여기도 내용 2줄만 나오게 하고 있는데 제대로 나오는지 확인해보자 우아아아아아아아아아아! 조금 더 써야했네 ㅠㅠㅠㅠ",
 		"thumb": "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 		"path": "",
-		"category": "FE"
+		"category": "BE"
 	},
 	{
 		"id": 3,
@@ -27,7 +27,7 @@
 		"description": "코동 챗바퀴",
 		"thumb": "https://images.unsplash.com/photo-1564865878688-9a244444042a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 		"path": "",
-		"category": "FE"
+		"category": "DB"
 	},
 	{
 		"id": 4,
@@ -47,7 +47,7 @@
 		"description": "여기도 주절주절 많이 쓰면 어떻게 되는지 보자 ...이 나와야 하는데 어느정도까지 써야지 나올지 몰라서 계속 쓰고있습니다. 우아아아아아!",
 		"thumb": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1120&q=80",
 		"path": "",
-		"category": "FE"
+		"category": "BE"
 	},
 	{
 		"id": 6,
@@ -57,7 +57,7 @@
 		"description": "영.롱.그.잡.채",
 		"thumb": "https://images.unsplash.com/photo-1597589827703-f4b68eafa0ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1072&q=80",
 		"path": "",
-		"category": "FE"
+		"category": "DB"
 	},
 	{
 		"id": 7,
@@ -77,6 +77,6 @@
 		"description": "뭔가 분위기가 좋아",
 		"thumb": "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
 		"path": "",
-		"category": "FE"
+		"category": "My Story"
 	}
 ]

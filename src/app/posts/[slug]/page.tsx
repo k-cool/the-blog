@@ -43,7 +43,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
 					</div>
 				</div>
 				<div className="p-4">
-					<div className="flex justify-end text-sm text-contrast">
+					<div className="self-end text-sm text-contrast">
 						<div className="flex items-center gap-2">
 							<AiTwotoneCalendar size={18} />
 							<span>{new Date(createdAt).toIntlString()}</span>

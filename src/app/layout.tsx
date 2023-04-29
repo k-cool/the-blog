@@ -6,12 +6,12 @@ import { addIntlUtilAsPrototypeMethod } from '@/util/intl';
 import { getJSONData } from '@/service/staticData';
 
 import type { HeaderMenuList } from '@/types/headerMenu.type';
-import { Inter } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 import './globals.css';
 
 addIntlUtilAsPrototypeMethod();
 
-const inter = Inter({ subsets: ['latin'] });
+const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata = {
 	title: 'Purple Space',
@@ -22,14 +22,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	const headerMenu = (await getJSONData('headerMenu')) as HeaderMenuList;
 
 	return (
-		<html lang="en" className="">
-			<body className="flex-1 scrollbar-thin  scrollbar-track-slate-700 scrollbar-thumb-purple-300">
-				<UtilProvidor>
+		<UtilProvidor>
+			<html lang="en" className={openSans.className}>
+				<body className="flex flex-col w-full max-w-screen-2xl m-auto scrollbar-thin  scrollbar-track-slate-700 scrollbar-thumb-purple-300">
 					<Header headerMenu={headerMenu} />
-					<main className="min-h-screen">{children}</main>
+					<main className="grow">{children}</main>
 					<Footer />
-				</UtilProvidor>
-			</body>
-		</html>
+				</body>
+			</html>
+		</UtilProvidor>
 	);
 }

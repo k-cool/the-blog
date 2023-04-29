@@ -8,7 +8,7 @@ interface PostCardProps {
 
 export default function PostCard({ postData }: PostCardProps) {
 	return (
-		<div className="relative w-full h-[300px] bg-themeBlack rounded-lg shadow-md overflow-hidden cursor-pointer">
+		<div className="relative w-full h-[300px] bg-themeBlack rounded-lg overflow-hidden cursor-pointer shadow-sm hover:shadow-xl">
 			<div className="w-full h-[150px] overflow-hidden">
 				<div className="w-full h-[150px] relative hover:scale-110 duration-300">
 					<Image
