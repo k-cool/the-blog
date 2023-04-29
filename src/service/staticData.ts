@@ -35,7 +35,7 @@ export async function getPostMetaData(id: string, prevNext = false) {
 	}
 }
 
-export async function getPostMD(id: string) {
+export async function getPostMD(id: string): Promise<string | null> {
 	const filePath = path.join(process.cwd(), 'data', 'posts', `${id}.md`);
 
 	try {
