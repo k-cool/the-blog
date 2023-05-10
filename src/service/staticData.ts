@@ -1,6 +1,6 @@
 import path from 'path';
 import { promises as fs } from 'fs';
-import type { PostList } from '@/types/post.type';
+import type { IPostNavigatorData, PostList } from '@/types/post.type';
 
 export async function getJSONData(fileName: string) {
 	const filePath = path.join(
@@ -17,19 +17,19 @@ export async function getJSONData(fileName: string) {
 	}
 }
 
-export async function getPostMetaData(id: string, prevNext = false) {
+export async function getPostMetaData(
+	id: string
+): Promise<IPostNavigatorData | undefined> {
 	const filePath = path.join(process.cwd(), 'data/posts.json');
 
 	try {
 		const data = (await fs.readFile(filePath, 'utf-8').then(JSON.parse)) as PostList;
+		const index = data.findIndex(post => post.id == id);
+		const prev = index > 0 ? data[index - 1] : null;
+		const target = data[index];
+		const next = index < data.length - 1 ? data[index + 1] : null;
 
-		if (prevNext) {
-			const index = data.findIndex(post => post.id == id);
-			const prev = index > 0 ? data[index - 1] : null;
-			const target = data[index];
-			const next = index < data.length - 1 ? data[index + 1] : null;
-			return { prev, target, next };
-		} else return { target: data.find(post => post.id == id) };
+		return { prev, target, next };
 	} catch (err) {
 		console.error(err);
 	}

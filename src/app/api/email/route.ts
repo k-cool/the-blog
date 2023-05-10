@@ -1,47 +1,28 @@
-import nodemailer from 'nodemailer';
-import { MailOptions } from 'nodemailer/lib/json-transport';
+import { sendEmail } from '@/util/nodeMailer';
+import { nodemailerSchema } from '@/util/yup';
 
-const to = process.env.EMAIL;
-const transporter = nodemailer.createTransport({
-	service: 'gmail',
-	// host: 'smtp.gmail.com',
-	// port: 465,
-	// secure: true,
-	auth: {
-		user: process.env.EMAIL,
-		pass: process.env.PASSWORD,
-	},
-});
-
-export async function GET(request: Request) {
+export async function GET(req: Request) {
 	return new Response('email get!');
 }
 
-interface EmailPOSTBody {
-	email: string;
-	subject: string;
-	message: string;
-}
+export async function POST(req: Request) {
+	const body = await req.json();
+	const isValidated = await nodemailerSchema.isValid(body);
 
-export async function POST(request: Request) {
-	const {
-		email: from,
-		subject,
-		message: text,
-	} = request.body as unknown as EmailPOSTBody;
+	if (!isValidated)
+		return new Response(JSON.stringify({ message: '유효한 양식이 아닙니다.' }), {
+			status: 400,
+		});
 
-	console.log(process.env.EMAIL, process.env.PASSWORD);
-
-	const mailOptions: MailOptions = { from, to, subject, text };
-
-	transporter.sendMail(mailOptions, (err, info) => {
-		if (err) {
+	return sendEmail(body) //
+		.then(
+			() =>
+				new Response(JSON.stringify({ message: '메일을 성공적으로 보냈습니다.' }), {
+					status: 200,
+				})
+		)
+		.catch(err => {
 			console.error(err);
-			return new Response('error');
-		} else {
-			console.log('Email sent: ', info.response);
-
-			return new Response(info.response);
-		}
-	});
+			new Response(JSON.stringify({ message: '메일 전송에 실패함' }), { status: 500 });
+		});
 }

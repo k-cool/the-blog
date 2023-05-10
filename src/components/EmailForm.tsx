@@ -5,6 +5,9 @@ import { ValidationError } from 'yup';
 
 import ToastMessage, { ToastState } from './ToastMessage';
 import Button from './Button';
+import { RiLoader5Fill } from 'react-icons/ri';
+import { BiLoaderAlt } from 'react-icons/bi';
+import loaderIcon from '../../public/icons/loader.svg';
 
 import {
 	EamilFormUserInput,
@@ -12,6 +15,8 @@ import {
 	emailFormSchema,
 	MESSAGE_MAX_LENGTH,
 } from '@/util/yup';
+import { sendEmail } from '@/service/sendEmail';
+import Image from 'next/image';
 
 export default function EmailForm() {
 	const [userInput, setUserInput] = useState<EamilFormUserInput>({
@@ -31,18 +36,30 @@ export default function EmailForm() {
 		message: '메일을 성공적으로 보냈습니다.',
 	});
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	const handleClickSubmit = async () => {
-		const { email, subject, message } = userInput;
+		setIsLoading(true);
 		setErrorMessage({ email: '', subject: '', message: '' });
 
 		try {
 			await emailFormSchema.validate(userInput, { abortEarly: false });
 
-			setToastState(() => ({
-				type: 'success',
-				message: '메일을 성공적으로 보냈습니다.',
-			}));
-			setUserInput({ email: '', subject: '', message: '' });
+			sendEmail(userInput)
+				.then(() => {
+					setToastState(() => ({
+						type: 'success',
+						message: '메일을 성공적으로 보냈습니다.',
+					}));
+					setUserInput({ email: '', subject: '', message: '' });
+				})
+				.catch(err =>
+					setToastState(() => ({
+						type: 'error',
+						message: '메일을 보내는데 실패하였습니다. 다시 시도해주세요!',
+					}))
+				)
+				.finally(() => setIsLoading(false));
 		} catch (err) {
 			const validationErrors: EmailFormErrorMessage = {
 				email: '',
@@ -57,12 +74,14 @@ export default function EmailForm() {
 
 				setErrorMessage(validationErrors);
 			}
+
+			setIsLoading(false);
 		}
 	};
 
 	const handlechange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
-		setUserInput({ ...userInput, [name]: value });
+		setUserInput(prev => ({ ...prev, [name]: value }));
 	};
 
 	return (
@@ -71,12 +90,18 @@ export default function EmailForm() {
 			<div className="my-3">
 				<ToastMessage state={toastState} />
 			</div>
-			<div className="flex flex-col gap-2 w-[350px] p-6 bg-slate-600 rounded-xl">
+			<form className="flex flex-col gap-2 w-[350px] p-6 bg-slate-600 rounded-xl">
 				<div>
-					<p className="mb-1">Your Email</p>
+					<label className="mb-1" htmlFor="email">
+						Your Email
+					</label>
 					<input
 						className="w-full text-black"
+						id="email"
+						type="email"
 						name="email"
+						required
+						autoFocus
 						value={userInput.email}
 						onChange={handlechange}
 					/>
@@ -85,10 +110,15 @@ export default function EmailForm() {
 					)}
 				</div>
 				<div>
-					<p className="mb-1">Subject</p>
+					<label className="mb-1" htmlFor="subject">
+						Subject
+					</label>
 					<input
 						className="w-full text-black"
+						id="subject"
 						name="subject"
+						type="text"
+						required
 						value={userInput.subject}
 						onChange={handlechange}
 					/>
@@ -97,23 +127,37 @@ export default function EmailForm() {
 					)}
 				</div>
 				<div>
-					<p className="mb-1">Message</p>
+					<label className="mb-1" htmlFor="message">
+						Message
+					</label>
 					<textarea
-						className="w-full text-black h-[200px]"
+						className="w-full text-black"
+						id="message"
 						name="message"
+						required
+						spellCheck={false}
+						rows={8}
+						maxLength={MESSAGE_MAX_LENGTH}
 						value={userInput.message}
 						onChange={handlechange}
-						spellCheck={false}
-						maxLength={MESSAGE_MAX_LENGTH}
 					/>
 					{errorMessage.message && (
 						<p className="text-red-600 text-sm">{errorMessage.message}</p>
 					)}
 				</div>
-				<Button width="full" onClick={handleClickSubmit}>
-					submit
+
+				<Button
+					type="button"
+					width="full"
+					onClick={isLoading ? undefined : handleClickSubmit}
+				>
+					{isLoading ? (
+						<Image src={loaderIcon} alt="loader" width={30} height={30} />
+					) : (
+						'Submit'
+					)}
 				</Button>
-			</div>
+			</form>
 		</section>
 	);
 }

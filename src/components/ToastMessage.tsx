@@ -8,9 +8,10 @@ export interface ToastState {
 
 interface ToastMessageProps {
 	state: ToastState;
+	timeoutSec?: number;
 }
 
-export default function ToastMessage({ state }: ToastMessageProps) {
+export default function ToastMessage({ state, timeoutSec = 3 }: ToastMessageProps) {
 	const { type, message } = state;
 	const [show, setShow] = useState(false);
 
@@ -18,7 +19,7 @@ export default function ToastMessage({ state }: ToastMessageProps) {
 		setShow(true);
 		setTimeout(() => {
 			setShow(false);
-		}, 3000);
+		}, timeoutSec * 1000);
 	}, [state]);
 
 	const isSucess = type === 'success';

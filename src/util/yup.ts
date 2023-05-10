@@ -31,3 +31,12 @@ export const emailFormSchema = yup.object().shape({
 		.required('내용을 입력하세요')
 		.max(MESSAGE_MAX_LENGTH, `내용은 ${MESSAGE_MAX_LENGTH}자를 넘을 수 없습니다.`),
 });
+
+export const nodemailerSchema = yup.object().shape({
+	from: yup
+		.string()
+		.email('올바른 이메일 형식이 아닙니다.')
+		.required('from 값이 없습니다.'),
+	subject: yup.string().required('subject 값이 없습니다.'),
+	message: yup.string().required('message 값이 없습니다.'),
+});

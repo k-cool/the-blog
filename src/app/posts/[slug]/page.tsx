@@ -21,7 +21,7 @@ interface PostPageProps {
 // }
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
-	const postNavigatorData = (await getPostMetaData(slug, true)) as IPostNavigatorData;
+	const postNavigatorData = await getPostMetaData(slug);
 	const postMD = (await getPostMD(slug)) as string;
 
 	if (!postNavigatorData || !postMD) return notFound();

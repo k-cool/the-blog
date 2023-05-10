@@ -5,6 +5,7 @@ import HighlightedCode from '@/components/HighlightedCode';
 
 import type { CodeProps } from 'react-markdown/lib/ast-to-react';
 import '../styles/mdCss.css';
+import Image from 'next/image';
 
 interface MarkdownViewerProps {
 	postMD: string;
@@ -17,7 +18,7 @@ export default function MarkdownViewer({ postMD }: MarkdownViewerProps) {
 			<ReactMarkdown
 				linkTarget="_blank"
 				remarkPlugins={[remarkGfm]}
-				components={{ code }}
+				components={{ code, img }}
 			>
 				{content}
 			</ReactMarkdown>
@@ -41,8 +42,17 @@ const code = ({ node, inline, className, children, ...props }: CodeProps) => {
 	);
 };
 
-// const a = ({ children, href }: any) => (
-// 	<a href={href} target="_blank">
-// 		{children}
-// 	</a>
-// );
+//@ts-ignore
+const img = img => {
+	return (
+		<div className="flex justify-center my-4">
+			<Image
+				className="w-[90%] h-[300px] object-cover rounded-lg"
+				src={img.src || ''}
+				alt={img.alt || ''}
+				width={500}
+				height={350}
+			/>
+		</div>
+	);
+};

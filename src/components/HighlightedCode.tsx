@@ -1,6 +1,7 @@
 'use client';
 
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { BsClipboard, BsFillClipboardCheckFill } from 'react-icons/bs';
 import { useState } from 'react';

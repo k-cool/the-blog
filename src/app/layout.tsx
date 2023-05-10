@@ -16,6 +16,7 @@ const openSans = Open_Sans({ subsets: ['latin'] });
 export const metadata = {
 	title: 'Purple Space',
 	description: 'Purple Space의 보라빛 공간입니다.',
+	manifest: '/manifest.json',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
