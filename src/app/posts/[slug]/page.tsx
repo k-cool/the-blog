@@ -1,12 +1,13 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import MarkdownViewer from '@/components/MarkdownViewer';
 import PostNavigator from '@/components/PostNavigator';
 import { AiTwotoneCalendar } from 'react-icons/ai';
 
-import { getPostMD, getPostMetaData } from '@/service/staticData';
-import type { IPostNavigatorData } from '@/types/post.type';
-import MarkdownViewer from '@/components/MarkdownViewer';
+import { getJSONData, getPostMD, getPostMetaData } from '@/service/staticData';
+import { PostList } from '@/types/post.type';
 
 interface PostPageProps {
 	params: {
@@ -14,11 +15,15 @@ interface PostPageProps {
 	};
 }
 
-// 페이지 메타정보 입력해주기
-// export async function generateMetadata({ params: { slug } }: Props) {
-// const product = await getProduct(slug);
-// return { title: `Good | ${product?.name}` };
-// }
+export async function generateMetadata({
+	params: { slug },
+}: PostPageProps): Promise<Metadata> {
+	const {
+		target: { title, description },
+	} = await getPostMetaData(slug);
+
+	return { title, description };
+}
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
 	const postNavigatorData = await getPostMetaData(slug);
@@ -61,4 +66,9 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
 			</section>
 		</div>
 	);
+}
+
+export async function generateStaticParams() {
+	const postList = (await getJSONData('posts')) as PostList;
+	return postList.map(post => ({ slug: String(post.id) }));
 }

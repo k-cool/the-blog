@@ -8,8 +8,17 @@ import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si';
 
 const IconSelector: { [idx: string]: React.ReactNode } = {
 	Github: <SiGithub size={40} className="fill-tertiary hover:scale-110 duration-200" />,
-	Linkedin: <SiLinkedin size={40} className="fill-tertiary hover:scale-110 duration-200" />,
-	Instagram: <SiInstagram size={40} className="fill-tertiary hover:scale-110 duration-200" />,
+	Linkedin: (
+		<SiLinkedin size={40} className="fill-tertiary hover:scale-110 duration-200" />
+	),
+	Instagram: (
+		<SiInstagram size={40} className="fill-tertiary hover:scale-110 duration-200" />
+	),
+};
+
+export const metadata = {
+	title: 'Contact',
+	description: '이메일 보내기 페이지입니다.',
 };
 
 export default async function ContactPage() {

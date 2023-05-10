@@ -1,8 +1,10 @@
 import path from 'path';
 import { promises as fs } from 'fs';
 import type { IPostNavigatorData, PostList } from '@/types/post.type';
+import { cache } from 'react';
 
-export async function getJSONData(fileName: string) {
+export const getJSONData = cache(async (fileName: string) => {
+	// console.log('getJSONData', fileName);
 	const filePath = path.join(
 		process.cwd(),
 		'data',
@@ -15,11 +17,10 @@ export async function getJSONData(fileName: string) {
 	} catch (err) {
 		return null;
 	}
-}
+});
 
-export async function getPostMetaData(
-	id: string
-): Promise<IPostNavigatorData | undefined> {
+export const getPostMetaData = cache(async (id: string) => {
+	// console.log('getPostMetaData', id);
 	const filePath = path.join(process.cwd(), 'data/posts.json');
 
 	try {
@@ -32,10 +33,12 @@ export async function getPostMetaData(
 		return { prev, target, next };
 	} catch (err) {
 		console.error(err);
+		throw err;
 	}
-}
+});
 
-export async function getPostMD(id: string): Promise<string | null> {
+export const getPostMD = cache(async (id: string) => {
+	// console.log('getPostMD', id);
 	const filePath = path.join(process.cwd(), 'data', 'posts', `${id}.md`);
 
 	try {
@@ -44,4 +47,4 @@ export async function getPostMD(id: string): Promise<string | null> {
 	} catch (err) {
 		return null;
 	}
-}
+});

@@ -14,9 +14,10 @@ addIntlUtilAsPrototypeMethod();
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata = {
-	title: 'Purple Space',
+	title: { default: 'Purple Space', template: 'Purple Space | %s' },
 	description: 'Purple Space의 보라빛 공간입니다.',
 	manifest: '/manifest.json',
+	// icons: { icon: '/favicon.ico' }, // app경로에 favicon.ico 파일만 있어도 자동 적용된다.
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

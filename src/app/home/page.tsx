@@ -1,6 +1,5 @@
 import PostGrid from '@/components/PostGrid';
 import ProfileCard from '@/components/ProfileCard';
-import PostVScroll from '@/components/PostVScroll';
 import { getJSONData } from '@/service/staticData';
 import PostCarousel from '@/components/PostCarousel';
 
